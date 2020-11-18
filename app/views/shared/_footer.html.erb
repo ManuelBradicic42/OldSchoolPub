@@ -1,0 +1,44 @@
+<style media="screen">
+.footer {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 10px;
+}
+
+.column_footer {
+  text-align: left;
+  display:inline-block;
+  width:15%;
+  padding: 15px;
+}
+
+.bottom{
+  background-color: #D9D9D9;
+}
+
+</style>
+<div class="footer">
+
+  <div class="column_footer">
+    <%= image_tag("oldschoolpub_logo") %>
+  </div>
+  
+  <div class="column_footer">
+    <table>
+      <p><%= t('footer.text') %></p>
+    </table>
+  </div>
+
+  <div class="column_footer">
+    <table>
+      <ul>
+        <li><a href="home">Home</a></li>
+        <li><a href="menu">Menu</a></li>
+        <li><a href="delivery">Delivery</a></li>
+        <li><a href="contact">Contact Us</a></li>
+      </ul>
+    </table>
+  </div>
+
+  <p>© 2020 Copyright: Manuel Bradicic</p>
+</div>

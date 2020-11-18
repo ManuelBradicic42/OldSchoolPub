@@ -1,0 +1,11 @@
+en:
+  menus:
+    title: "Menus"
+    text_head: "If you would like to make any changes with the menu, or add a new article:"
+  home:
+    title: "OldSchoolPub"
+    text_picture: "Are you ready for the best pizza in town?"
+    text_button: "Order me"
+  footer:
+    text: "Pub OldSchoolPub started with work in 2007. and soon after that it was
+    positively recognised in the area as one of the pubs with delicious pizzas. "
