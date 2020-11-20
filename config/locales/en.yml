@@ -1,11 +1,18 @@
 en:
   menus:
-    title: "Menus"
+    title: "Menu"
     text_head: "If you would like to make any changes with the menu, or add a new article:"
   home:
-    title: "OldSchoolPub"
+    title: "Welcome to OldSchoolPub!"
+    introduction_text: >
+      Was certainty remaining engrossed applauded sir how discovery.
+      Settled opinion how enjoyed greater joy adapted too shy. Now properly surprise expenses interest nor replying she she. Bore tall nay many many time yet less. Doubtful for answered one fat indulged margaret sir shutters together. Ladies so in wholly around whence in at. Warmth he up giving oppose if. Impossible is dissimilar entreaties oh on terminated. Earnest studied article country ten respect showing had. But required offering him elegance son improved informed.Certainly elsewhere my do allowance at<br>. The address farther six hearted hundred towards husband. Are securing off occasion remember daughter replying. Held that feel his see own yet. Strangers ye to he sometimes propriety in. She right plate seven has. Bed who perceive judgment did marianne.
+      Of resolve to gravity thought my prepare chamber so. Unsatiable entreaties collecting may sympathize nay interested instrument. If continue building numerous of at relation in margaret. Lasted engage roused mother an am at. Other early while if by do to. Missed living excuse as be. Cause heard fat above first shall for. My smiling to he removal weather on anxious."
     text_picture: "Are you ready for the best pizza in town?"
     text_button: "Order me"
   footer:
-    text: "Pub OldSchoolPub started with work in 2007. and soon after that it was
-    positively recognised in the area as one of the pubs with delicious pizzas. "
+    column2: "Location"
+    text: >-
+      Guildford Park Avenue 7 Guildford
+      GU2 7NJ, Surrey
+      +(0)7388 252620

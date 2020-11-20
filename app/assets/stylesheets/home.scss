@@ -1,3 +1,36 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$font: 'Times New Roman', 'Times', serif;
+
+.background{
+  background-color: #222;
+}
+.structure{
+  background-color: #FFFFFF;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family: $font;
+  font-size: 15px;
+}
+
+.text_style{
+  font-family: $font;
+  font-size: 16px;
+  word-spacing: 4px;
+
+  padding: 10px;
+}
+h1{
+  padding-top: 15px;
+}
+
+.welcome{
+  font-family: $font;
+  font-style: italic;
+}

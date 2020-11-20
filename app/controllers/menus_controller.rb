@@ -7,6 +7,10 @@ class MenusController < ApplicationController
     @menus = Menu.all
   end
 
+  def menu_display
+    @menus = Menu.all
+  end
+
   # GET /menus/1
   # GET /menus/1.json
   def show

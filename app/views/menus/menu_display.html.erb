@@ -1,0 +1,52 @@
+<style media="screen">
+  td{
+    width:20%;
+  }
+  table{
+  margin-left:20px;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+
+<div class="background">
+  <div class="structure">
+    <h1><%= t('menus.title') %></h1>
+    <p><%= t('menus.text_head') %></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Description</th>
+          <th style="text-align:center">Price</th>
+          <th>Book</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @menus.each do |menu| %>
+          <%#= content_tag :div, class: "menus_class",  do %>
+          <%#end %>
+          <tr>
+            <% if menu.availability == true %>
+            <%#= image_tag("Pizza.jpg") %>
+
+              <td><%= image_tag(menu.name, :class => "img") rescue image_tag ('Pizza.jpg')%></td>
+              <td><%= menu.name %></td>
+              <td><%= menu.description %></td>
+              <td style="text-align:center"><%= menu.price %></td>
+              <td><%= link_to 'Order', "", class:'order', data: {'js-order-link' => true}  %></td>
+              <td><%= link_to 'Show', menu %></td>
+              <td><%#= link_to 'Edit', edit_menu_path(menu) %></td>
+              <td><%#= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+  </div>
+</div>

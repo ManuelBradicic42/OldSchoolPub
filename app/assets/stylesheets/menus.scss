@@ -1,3 +1,24 @@
 // Place all the styles related to the Menus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font: 'Times New Roman', 'Times', serif;
+
+.background{
+  background-color: #222;
+}
+.structure{
+  background-color: #FFFFFF;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family: $font;
+  font-size: 15px;
+}
+
+.img{
+  max-width: 90%;
+  min-width: 100px;
+  height: auto;
+}

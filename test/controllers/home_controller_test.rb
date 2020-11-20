@@ -7,4 +7,16 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "The title should be" do
+    get root_url
+    assert_select 'title', 'OldSchoolPub'
+    assert_response :success
+  end
+
+  test "The header should be" do
+    get root_url
+    assert_select 'text_button', 'Order me'
+    assert_response :success
+  end
+
 end

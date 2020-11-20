@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   resources :menus
 
   get 'home', to: 'home#home'
-  get 'menu', to: 'menus#index'
-  get 'destroy', to: 'menus#index_destroy'
+  get 'menu', to: 'menus#menu_display'
 
-  root "home#home"
+  root "menus#menu_display"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

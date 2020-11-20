@@ -1,44 +1,51 @@
+
 <style media="screen">
-.footer {
-  background-color: #F1F1F1;
-  text-align: center;
-  padding: 10px;
-}
 
-.column_footer {
-  text-align: left;
-  display:inline-block;
-  width:15%;
-  padding: 15px;
-}
+  .background{
+    background-color: #222;
+  }
+  .row{
+    background-color: #D9D9D9;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: Times New Roman', 'Times', serif;
+    font-size: 15px;
+    text-align: left;
 
-.bottom{
-  background-color: #D9D9D9;
-}
+  }
 
+  .column{
+    width: 33%;
+    padding: 3px;
+    float: left;
+  }
 </style>
-<div class="footer">
 
-  <div class="column_footer">
-    <%= image_tag("oldschoolpub_logo") %>
-  </div>
-  
-  <div class="column_footer">
-    <table>
+
+<div class="background">
+  <div class="row">
+    <div class="column">
+      <%= image_tag("oldschoolpub_logo") %>
+    </div>
+
+    <div class="column ">
+      <h2 style="text-align: center">About</h2>
       <p><%= t('footer.text') %></p>
-    </table>
-  </div>
+    </div>
 
-  <div class="column_footer">
-    <table>
-      <ul>
-        <li><a href="home">Home</a></li>
-        <li><a href="menu">Menu</a></li>
-        <li><a href="delivery">Delivery</a></li>
-        <li><a href="contact">Contact Us</a></li>
-      </ul>
-    </table>
+    <div class="column ">
+      <h2 style="text-align: center">Navigation</h2>
+      <table>
+        <ul>
+          <li><a href="home">Home</a></li>
+          <li><a href="menu">Menu</a></li>
+          <li><a href="delivery">Delivery</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </table>
+    </div>
+  <br>
   </div>
-
-  <p>© 2020 Copyright: Manuel Bradicic</p>
 </div>
