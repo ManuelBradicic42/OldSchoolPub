@@ -79,3 +79,39 @@ $color: #FFFFFF;
 .row{
   font-family: $font;
 }
+
+//*****************************************************************************
+//*************************MENU AND DELIVERY PRINTOUT**************************
+
+$font: 'Times New Roman', 'Times', serif;
+
+.backgroundMenu{
+  background-color: #222;
+}
+.structureMenu{
+  background-color: #FFFFFF;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family: $font;
+  font-size: 15px;
+}
+
+.imgMenu{
+  max-width: 60%;
+  min-width: 100px;
+  height: auto;
+}
+
+tr.even{
+  background-color: #FFFFFF;
+}
+tr.odd{
+  background-color: #CCC;
+}
+
+
+table.Menu{
+  margin-left:20px;
+  }

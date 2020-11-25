@@ -2,23 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$font: 'Times New Roman', 'Times', serif;
+// $font: 'Times New Roman', 'Times', serif;
+//
+// .backgroundMenu{
+//   background-color: #222;
+// }
+// .structureMenu{
+//   background-color: #FFFFFF;
+//   margin-left: 10%;
+//   margin-right: 10%;
+//   padding-left: 5%;
+//   padding-right: 5%;
+//   font-family: $font;
+//   font-size: 15px;
+// }
+//
+// .imgMenu{
+//   max-width: 60%;
+//   min-width: 100px;
+//   height: auto;
+// }
+//
+// tr.even{
+//   background-color: #FFFFFF;
+// }
+// tr.odd{
+//   background-color: #CCC;
+// }
 
-.background{
-  background-color: #222;
-}
-.structure{
-  background-color: #FFFFFF;
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-left: 5%;
-  padding-right: 5%;
-  font-family: $font;
-  font-size: 15px;
-}
 
-.img{
-  max-width: 90%;
-  min-width: 100px;
-  height: auto;
+
+// The background, structure and image css is in application.scss since we are
+// using it for both cart and menu view.
+
+td{
+  width: 20%;
+}
+td.picture{
+  width: 30%;
+}
+td.name{
+  width: 20%;
 }

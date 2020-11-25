@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orderNr: 1
+  date: 2020-11-20
+  customerName: MyString
+  customerNumber: MyString
+  address: MyText
+  totalPrice: 1
+
+two:
+  orderNr: 1
+  date: 2020-11-20
+  customerName: MyString
+  customerNumber: MyString
+  address: MyText
+  totalPrice: 1

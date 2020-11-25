@@ -13,3 +13,5 @@ Menu.create(name: "Italian pizza", description: "Onions, green and red peppers, 
 Menu.create(name: "Quattro Formaggio", description: "4 types of our original Cheese & Tomato pizza. 350kcal / large slice / classic crust.", availability:true, price:12.99)
 Menu.create(name: "Smoked Chicken", description: "Chicken, mushrooms, sweetcorn. 198kcal / large slice / classic crust.", availability:true, price:10.99)
 Menu.create(name: "Texas BBQ", description: "Chicken, mushrooms, sweetcorn. 198kcal / large slice / classic crust.", availability:true, price:10.99)
+
+Order.create(orderNr: 33212, date: "13/08/2020", customerName: "Jake", customerNumber: 007384233212, address: "My personal address", totalPrice: 321)

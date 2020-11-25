@@ -10,13 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_143853) do
+ActiveRecord::Schema.define(version: 2020_11_24_135215) do
 
   create_table "menus", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+    t.string "name", null: false
+    t.text "description", null: false
     t.boolean "availability"
-    t.float "price"
+    t.float "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menus_orders", id: false, force: :cascade do |t|
+    t.integer "menu_id", null: false
+    t.integer "order_id", null: false
+    t.index ["menu_id", "order_id"], name: "index_menus_orders_on_menu_id_and_order_id"
+    t.index ["order_id", "menu_id"], name: "index_menus_orders_on_order_id_and_menu_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "orderNr", null: false
+    t.date "date", null: false
+    t.string "customerName", null: false
+    t.string "customerNumber", null: false
+    t.text "address", null: false
+    t.integer "totalPrice", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
