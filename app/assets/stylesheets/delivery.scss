@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 td{
   width: 15%;
 }
@@ -10,4 +11,10 @@ td.picture{
 }
 td.name{
   width: 10%;
+}
+
+#finalPrice {
+  font-weight: bold;
+  text-align: right;
+  font-size: 20px;
 }

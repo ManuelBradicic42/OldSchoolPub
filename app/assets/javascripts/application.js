@@ -40,6 +40,8 @@ function updateNumberOfOrders3(){
 
 function load(){
   if(typeof(Storage) !== "undefined"){
+    var finalPrice = 0;
+
     for (var i = 1; i <= map.size; i++) {
       var id = "nrUnits" + i;
       var id_ppu = "ppu" + i;
@@ -47,15 +49,19 @@ function load(){
 
 
       var totalPrice = document.getElementById(id_ppu).innerHTML * map.get(id);
+      finalPrice += totalPrice;
 
       localStorage.setItem(id, map.get(id));
       localStorage.setItem(id_totalPrice, totalPrice);
 
-      // alert(id + " : " + map.get(id));
       document.getElementById(id).innerHTML = localStorage.getItem(id);
       document.getElementById(id_totalPrice).innerHTML = localStorage.getItem(id_totalPrice) + "£";
-      // localStorage.getItem(id);
-      // $("#"+id).text(map.get(id));
+
+      if(i == map.size){
+        localStorage.setItem("finalPrice", finalPrice);
+        document.getElementById("finalPrice").innerHTML = "Final price is: " + localStorage.getItem("finalPrice") + "£";
+      }
+
     }
   } else {
     alert("Sorry, your browser does not support Web Storage...");

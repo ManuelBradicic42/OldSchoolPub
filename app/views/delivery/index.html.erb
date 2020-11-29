@@ -1,11 +1,11 @@
 <%= debug session[:cart] %>
 <%= javascript_tag "session = #{session[:cart].to_json.html_safe};"%>
 
-<div class="backgroundMenu">
+<div class="backgroundMenu" onload="load()">
   <div class="structureMenu">
-<% if @cart.empty? %>
-  <p >Your cart is empty! Please go to Menu and order something</p>
-<% else %>
+    <% if @cart.empty? %>
+      <p >Your cart is empty! Please go to Menu and order something</p>
+    <% else %>
 
       <h1><%= t('menus.title') %></h1>
       <p id="test1"><%= t('menus.text_head') %></p>
@@ -50,8 +50,9 @@
           <% end %>
         </tbody>
       </table>
-      window.updateNumberOfOrders();
-
+      <!-- To change the content of the output, check application.js, load function -->
+      <p id="finalPrice"></p>
+      <button onclick="my"
       <br>
   <% end %>
 </div>
