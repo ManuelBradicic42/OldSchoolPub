@@ -1,7 +1,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= debug session[:cart] %>
 
 <div class="backgroundMenu">
   <div class="structureMenu">
@@ -31,6 +30,7 @@
 
           <tr class="<%= row_class %>">
             <% if menu.availability == true %>
+
               <td class = "picture"><%= image_tag(menu.name, :class => "imgMenu", :alt => "Image") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td>
               <td class = "name"><%= menu.name %></td>
               <td><%= menu.description %></td>

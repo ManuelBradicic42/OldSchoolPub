@@ -1,24 +1,14 @@
-
 <%= debug session[:cart] %>
-
-<table>
-  <tr>
-    <% @cart.each do |product| %>
-    <th> <%=product.name %></th>
-    <th><%= product.price %></th>
-    <th> <%#= quantity%></th>
-    <% end %>
-  </tr>
-</table>
+<%= javascript_tag "session = #{session[:cart].to_json.html_safe};"%>
 
 <div class="backgroundMenu">
   <div class="structureMenu">
 <% if @cart.empty? %>
-  <p>Your cart is empty! Please go to Menu and order something</p>
+  <p >Your cart is empty! Please go to Menu and order something</p>
 <% else %>
 
       <h1><%= t('menus.title') %></h1>
-      <p><%= t('menus.text_head') %></p>
+      <p id="test1"><%= t('menus.text_head') %></p>
 
       <table class="Menu">
         <thead>
@@ -37,6 +27,7 @@
         <tbody>
           <% @cart.each_with_index do |menu, i| %>
             <% row_class = "" %>
+            <% row_id = menu.id.to_s %>
             <% if i % 2 == 0 %>
               <% row_class = "even" %>
             <% else %>
@@ -47,9 +38,9 @@
               <% if menu.availability == true %>
                 <td class="picture"><%= image_tag(menu.name, :class => "imgMenu", :alt => "Image") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td>
                 <td class="name"><%= menu.name %></td>
-                <td>2</td>
-                <td><%= menu.price %></td>
-                <td>21ra</td>
+                <td id="nrUnits<%= row_id %>"></td>
+                <td id="ppu<%= row_id %>"><%= menu.price %></td>
+                <td id="totalPrice<%= row_id %>"></td>
                 <td><%= link_to 'Add', add_to_cart_path(menu.id), method: :post %></td>
                 <td><%= link_to 'Remove', remove_from_cart_path(menu.id), method: :delete %></td>
 
@@ -59,6 +50,7 @@
           <% end %>
         </tbody>
       </table>
+      window.updateNumberOfOrders();
 
       <br>
   <% end %>
