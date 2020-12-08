@@ -31,8 +31,11 @@
             <% end %>
 
             <tr class="<%= row_class %>">
-
-              <td class = "picture"><%= image_tag(menu.name, :class => "imgMenu", :alt => "Image") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td>
+              <% if menu.image.url != nil %>
+                <td class = "picture"><%= image_tag(menu.image.url, :class => "imgMenu") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td>
+              <% else %>
+                <td class= "picture"><%= image_tag("/uploads/menu/image/" + menu.id.to_s + "/" + menu.name + ".jpg", :class =>"imgMenu")  %> </td>
+              <% end %>
               <td class = "name"><%= menu.name %></td>
               <td><%= menu.description %></td>
               <td style="text-align:center"><%= menu.price %></td>

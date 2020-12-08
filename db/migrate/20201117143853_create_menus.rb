@@ -5,6 +5,7 @@ class CreateMenus < ActiveRecord::Migration[5.2]
       t.text :description,    null: false
       t.boolean :availability
       t.float :price,         null: false
+      t.string :image,
 
       t.timestamps
     end

@@ -58,6 +58,7 @@ end
 gem 'bootstrap-sass'
 gem 'modernizr-rails'
 gem 'jquery-rails'
+gem 'carrierwave', '~> 2.0'
 
 gem 'rails-controller-testing'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

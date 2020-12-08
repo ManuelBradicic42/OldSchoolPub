@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2020_12_04_210043) do
     t.float "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x0000564d80c4c470>"
   end
 
   create_table "orders", force: :cascade do |t|
