@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_135215) do
+ActiveRecord::Schema.define(version: 2020_12_04_210043) do
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_line_items_on_menu_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
+  end
 
   create_table "menus", force: :cascade do |t|
     t.string "name", null: false
@@ -21,16 +30,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_135215) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "menus_orders", id: false, force: :cascade do |t|
-    t.integer "menu_id", null: false
-    t.integer "order_id", null: false
-    t.index ["menu_id", "order_id"], name: "index_menus_orders_on_menu_id_and_order_id"
-    t.index ["order_id", "menu_id"], name: "index_menus_orders_on_order_id_and_menu_id"
-  end
-
   create_table "orders", force: :cascade do |t|
-    t.integer "orderNr", null: false
-    t.date "date", null: false
     t.string "customerName", null: false
     t.string "customerNumber", null: false
     t.text "address", null: false

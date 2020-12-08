@@ -2,6 +2,9 @@ en:
   menus:
     title: "Menu"
     text_head: "If you would like to make any changes with the menu, or add a new article:"
+
+    show:
+      title: "New product in the menu"
   home:
     title: "Welcome to OldSchoolPub!"
     introduction_text: >
@@ -10,6 +13,46 @@ en:
       Of resolve to gravity thought my prepare chamber so. Unsatiable entreaties collecting may sympathize nay interested instrument. If continue building numerous of at relation in margaret. Lasted engage roused mother an am at. Other early while if by do to. Missed living excuse as be. Cause heard fat above first shall for. My smiling to he removal weather on anxious."
     text_picture: "Are you ready for the best pizza in town?"
     text_button: "Order me"
+
+    request_contact:
+      no_email: You must supply an email address
+      email_sent: Thank you. We will be in touch shortly.
+
+    staff:
+      title: "Welcome to the staff section"
+      text: "Using the links below you are allowed to add, edit or delete an product in the menu. You can also check all the orders and see what products were ordered"
+
+  order:
+    newOrder:
+      title: "My details"
+      text: "Thank you for making an order. Please fill"
+      button: "Place order"
+    show:
+      title: "Confirm"
+      text: "Please confirm your data below and finish the order"
+
+
+  delivery:
+    title: "This is your cart"
+    text: "Thank you for ordering our food! We make sure that all the products are cooked with love an
+    passion. If you want to add anyting please click 'add' or 'remove' if you do not want that product anymore"
+    emptyCartText: "Your cart is empty! Please go to the menu and choose your products "
+    button: "Checkoutw"
+
+  contact:
+    title: Contact us
+    contact_us: Complete the following form to get in touch with us.
+
+    name: "Name: "
+    enter_name: Enter you Name
+    email: "Email: "
+    enter_email: Enter you email
+    telephone: "Telephone: "
+    enter_telephone: Enter your telephone number
+    message: "Message: "
+    enter_message: "What do you want to say?"
+    submit: Contact us
+
   footer:
     column2: "Location"
     text: >-

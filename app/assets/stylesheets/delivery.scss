@@ -3,11 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-td{
-  width: 15%;
+td, th{
+  width: 13%;
+}
+.units{
+  text-align: center;
 }
 td.picture{
-  width: 35%;
+  width: 20%;
 }
 td.name{
   width: 10%;
@@ -17,4 +20,20 @@ td.name{
   font-weight: bold;
   text-align: right;
   font-size: 20px;
+}
+
+a.button{
+  background-color: #222;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  float: right;
+}
+.order{
+  height: 70px;
+
 }

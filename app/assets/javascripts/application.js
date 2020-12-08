@@ -17,16 +17,26 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-var map = new Map;
+var map;
+var max = 0;
+var uniqueSes = [];
 
+function setTotalPrice(){
+  document.getElementById("order_totalPrice").text = +localStorage.getItem("finalPrice");
+}
+
+// Creating a map of orders and unique array
 function updateNumberOfOrders3(){
+  map = new Map;
   var array = session;
-  alert(session);
+  // alert(session);
 
 
   array.map(function(currentValue, index){
     var id = "nrUnits" + currentValue;
-
+    if(currentValue > max){
+      max = currentValue;
+    }
     if(map.has(id)){
       var temp = map.get(id) + 1;
       map.set(id, temp);
@@ -35,17 +45,24 @@ function updateNumberOfOrders3(){
       map.set(id,1);
       // map[id] = 1;
     }
+    // session.set("map", map);
   });
+
+  // Create an array of non duplicates
+  $.each(array,function(i,el){
+    if($.inArray(el,uniqueSes) === -1) uniqueSes.push(el);
+  })
+  // alert(uniqueSes);
 }
 
 function load(){
   if(typeof(Storage) !== "undefined"){
     var finalPrice = 0;
-
-    for (var i = 1; i <= map.size; i++) {
-      var id = "nrUnits" + i;
-      var id_ppu = "ppu" + i;
-      var id_totalPrice = "totalPrice" + i;
+    alert(max);
+    for (var i = 0; i < uniqueSes.length; i++) {
+      var id = "nrUnits" + uniqueSes[i];
+      var id_ppu = "ppu" + uniqueSes[i];
+      var id_totalPrice = "totalPrice" + uniqueSes[i];
 
 
       var totalPrice = document.getElementById(id_ppu).innerHTML * map.get(id);
@@ -57,7 +74,8 @@ function load(){
       document.getElementById(id).innerHTML = localStorage.getItem(id);
       document.getElementById(id_totalPrice).innerHTML = localStorage.getItem(id_totalPrice) + "£";
 
-      if(i == map.size){
+      if(i+1 == uniqueSes.length){
+        finalPrice = finalPrice.toFixed(2);
         localStorage.setItem("finalPrice", finalPrice);
         document.getElementById("finalPrice").innerHTML = "Final price is: " + localStorage.getItem("finalPrice") + "£";
       }
@@ -67,35 +85,12 @@ function load(){
     alert("Sorry, your browser does not support Web Storage...");
   }
 }
-// function updateNumberOfOrders2(){
-//   var ses = session.sort(); //getting session
-//   var rObj = {}; // initializing
-//   var uniqueSes = [];
-//
-//   ses.map(function(currentValue, index){
-//     if(rObj.hasOwnProperty(currentValue)){
-//       rObj[currentValue] = rObj[currentValue] + 1;
-//     } else {
-//       rObj[currentValue] = 1;
-//     }
-//   });
-//   alert("aa" + rObj);
-//   for(var keys in rObj){
-//     var units = "nrUnits" + rObj[keys];
-//     var totalprice = "totalPrice" + rObj[keys];
-//     alert(units + " " + totalPrice);
-//   }
-//
-// }
+
+
 function updateNumberOfOrders(){
   var ses = session.sort(); //getting session
   var rObj = {} // initializing
-  var uniqueSes = [];
 
-  // Create an array of non duplicates
-  $.each(ses,function(i,el){
-    if($.inArray(el,uniqueSes) === -1) uniqueSes.push(el);
-  })
 
   // Update number of orders
   for (var i = 0; i < session.length; i++) {
@@ -115,9 +110,16 @@ function updateNumberOfOrders(){
 //   }
 // };
 
-window.onbeforeunload = function(){
+// window.onbeforeunload = function(){
+//   load();
+// }
+
+$(document).on("turbolinks:load",function(){
+  // console.log('event triggered!')
+  updateNumberOfOrders3();
   load();
-}
+  setTotalPrice();
+});
 
 $(document).ready(function(){
   $('[data-js-hide-link]').click(function(event){
@@ -125,6 +127,8 @@ $(document).ready(function(){
     event.preventDefault();
   });
 
-  updateNumberOfOrders3();
-  load();
+  $('#confirmId').click(function() {
+     $(this).hide()
+  })
+
 });

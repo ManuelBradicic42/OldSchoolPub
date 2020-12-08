@@ -1,24 +1,33 @@
-<p id="notice"><%= notice %></p>
+<body class="background">
+  <div class="structure">
 
-<p>
-  <strong>Name:</strong>
-  <%= @menu.name %>
-</p>
+    <h1><%= t('menus.show.title') %></h1>
+    <br>
 
-<p>
-  <strong>Description:</strong>
-  <%= @menu.description %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Availability:</strong>
-  <%= @menu.availability %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @menu.name %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @menu.price %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @menu.description %>
+    </p>
 
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
+    <p>
+      <strong>Availability:</strong>
+      <%= @menu.availability %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= @menu.price %>
+    </p>
+    <!--
+    <%= link_to 'Edit', edit_menu_path(@menu) %> |
+     -->
+    <%= link_to 'Back', "/staff" %>
+  </div>
+</body>

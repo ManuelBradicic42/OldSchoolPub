@@ -1,6 +1,6 @@
 class CreateMenus < ActiveRecord::Migration[5.2]
   def change
-    create_table :menus do |t|
+    create_table :menus, foreign_key: :id do |t|
       t.string :name,         null: false
       t.text :description,    null: false
       t.boolean :availability

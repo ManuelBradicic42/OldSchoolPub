@@ -12,16 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :orderNr %>
-    <%= form.number_field :orderNr %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="field">
     <%= form.label :customerName %>
     <%= form.text_field :customerName %>
   </div>
@@ -36,6 +26,7 @@
     <%= form.text_area :address %>
   </div>
 
+<!-- This value :  -->
   <div class="field">
     <%= form.label :totalPrice %>
     <%= form.number_field :totalPrice %>

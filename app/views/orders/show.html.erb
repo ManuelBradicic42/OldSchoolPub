@@ -1,34 +1,40 @@
-<p id="notice"><%= notice %></p>
+<body class="background">
+  <div class="structure">
+    <h1><%= t('order.show.title') %></h1>
+    <p><%= t('order.show.text') %></p>
+    <br>
+  <p id="notice"><%= notice %></p>
+  <p>
+    <strong>Customername:</strong>
+    <%= @order.customerName %>
+  </p>
 
-<p>
-  <strong>Ordernr:</strong>
-  <%= @order.orderNr %>
-</p>
+  <p>
+    <strong>Customernumber:</strong>
+    <%= @order.customerNumber %>
+  </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @order.date %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @order.address %>
+  </p>
 
-<p>
-  <strong>Customername:</strong>
-  <%= @order.customerName %>
-</p>
+  <p>
+    <strong>Totalprice:</strong>
+    <%= @order.totalPrice %>
+  </p>
 
-<p>
-  <strong>Customernumber:</strong>
-  <%= @order.customerNumber %>
-</p>
+  <ul>
+    <% if @order.line_items.empty? %>
+      <%= button_to 'Confirm', line_items_path(menu_id: session), id: 'confirmId'%>
+    <% else %>
+      <% @order.line_items.each do |item| %>
+        <li><%= item.menu.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
 
-<p>
-  <strong>Address:</strong>
-  <%= @order.address %>
-</p>
-
-<p>
-  <strong>Totalprice:</strong>
-  <%= @order.totalPrice %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+  <%= link_to 'Edit', edit_order_path(@order) %>
+  <%= link_to 'Back', "/menu" %>
+  </div>
+</body>

@@ -1,5 +1,9 @@
-<h1>New Order</h1>
+<body class="background">
+  <div class="structure">
+    <h1><%= t('order.newOrder.title') %></h1>
+    <p><%= t('delivery.text') %></p>
+    <%= render 'form', order: @order %>
 
-<%= render 'form', order: @order %>
-
-<%= link_to 'Back', orders_path %>
+    <%= link_to 'Back', "/delivery" %>
+  </div>
+</body>

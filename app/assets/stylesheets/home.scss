@@ -1,3 +1,4 @@
+
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -15,15 +16,13 @@ $font: 'Times New Roman', 'Times', serif;
   margin-right: 10%;
   padding-left: 5%;
   padding-right: 5%;
-  font-family: $font;
-  font-size: 15px;
 }
-
+p{
+font-size: medium; font-family: sans-serif
+}
 .text_style{
-  font-family: $font;
-  font-size: 16px;
+  font-size: medium;
   word-spacing: 4px;
-
   padding: 10px;
 }
 h1{
@@ -33,4 +32,8 @@ h1{
 .welcome{
   font-family: $font;
   font-style: italic;
+}
+
+#contact{
+  padding-bottom: 10px;
 }

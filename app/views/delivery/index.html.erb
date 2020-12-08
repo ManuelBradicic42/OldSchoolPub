@@ -1,14 +1,15 @@
 <%= debug session[:cart] %>
+
 <%= javascript_tag "session = #{session[:cart].to_json.html_safe};"%>
 
-<div class="backgroundMenu" onload="load()">
-  <div class="structureMenu">
+ <body class="background" onload="load()">
+  <div class="structure">
     <% if @cart.empty? %>
-      <p >Your cart is empty! Please go to Menu and order something</p>
+      <p ><%= t('delivery.emptyCartText') %></p>
     <% else %>
 
-      <h1><%= t('menus.title') %></h1>
-      <p id="test1"><%= t('menus.text_head') %></p>
+      <h1><%= t('delivery.title') %></h1>
+      <p class="limit"><%= t('delivery.text') %></p>
 
       <table class="Menu">
         <thead>
@@ -18,42 +19,52 @@
             <th>Number of units</th>
             <th>Price per unit</th>
             <th>Total price</th>
-            <th>b</th>
-            <th>a</th>
-            <th colspan="3"></th>
+            <th>Add</th>
+            <th>Remove</th>
+            <th colspan="6"></th>
           </tr>
         </thead>
 
+        <!-- Since not all menus are available I have to add a new counter for design -->
         <tbody>
+          <% row_id = 0 %>
           <% @cart.each_with_index do |menu, i| %>
+            <% menu_id = menu.id.to_s %>
             <% row_class = "" %>
-            <% row_id = menu.id.to_s %>
-            <% if i % 2 == 0 %>
-              <% row_class = "even" %>
-            <% else %>
-              <% row_class = "odd" %>
-            <% end %>
 
-            <tr class="<%= row_class %>">
-              <% if menu.availability == true %>
+            <% if menu.availability == true %>
+              <% row_id += 1 %>
+
+              <% if row_id % 2 == 0 %>
+                <% row_class = "even" %>
+              <% else %>
+                <% row_class = "odd" %>
+              <% end %>
+
+              <tr class="<%= row_class %>">
+
+
                 <td class="picture"><%= image_tag(menu.name, :class => "imgMenu", :alt => "Image") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td>
                 <td class="name"><%= menu.name %></td>
-                <td id="nrUnits<%= row_id %>"></td>
-                <td id="ppu<%= row_id %>"><%= menu.price %></td>
-                <td id="totalPrice<%= row_id %>"></td>
-                <td><%= link_to 'Add', add_to_cart_path(menu.id), method: :post %></td>
+                <td id="nrUnits<%= menu_id %>"class="units"></td>
+                <td id="ppu<%= menu_id %>" ><%= menu.price %></td>
+                <td id="totalPrice<%= menu_id %>"></td>
+                <td id="add"><%= link_to 'Add', add_to_cart_path(menu.id), method: :post %></td>
                 <td><%= link_to 'Remove', remove_from_cart_path(menu.id), method: :delete %></td>
 
+              </tr>
+            <% end %>
 
-              <% end %>
-            </tr>
           <% end %>
         </tbody>
       </table>
-      <!-- To change the content of the output, check application.js, load function -->
-      <p id="finalPrice"></p>
-      <button onclick="my"
       <br>
   <% end %>
-</div>
-</div>
+  <!-- To change the content of the output, check application.js, load function -->
+  <div class="order">
+    <p id="finalPrice"></p>
+    <a href="orders/new" class="button"><%= t('delivery.Checkout') %></a>
+  </div>
+  <br>
+  </div>
+</body>

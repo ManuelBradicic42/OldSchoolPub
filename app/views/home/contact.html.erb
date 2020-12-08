@@ -1,0 +1,22 @@
+
+<body class="background">
+  <div id="contact" class="structure">
+    <h1> <%=t('contact.title') %></h1>
+    <p> <%=t('contact.contact_us')%></p>
+    <%= form_tag request_contact_path, method: 'post' do %>
+      <%= label_tag :name, t('contact.name') %>
+      <%= text_field_tag :name, '', title: t('contact.enter_name'), size: 50 %>
+
+      <%= label_tag :email, t('contact.email') %>
+      <%= email_field_tag :email, '', title: t('contact.enter_email')  %>
+
+      <%= label_tag :name, t('contact.telephone') %>
+      <%= telephone_field_tag :telephone, '', title: t('contact.enter_telephone') %>
+
+      <%= label_tag :message, t('contact.message') %>
+      <%= text_field_tag :message, '', title: t('contact.enter_message'), size: 100 %>
+
+      <%= submit_tag t('contact.submit') %>
+    <% end %>
+  </div>
+</body>

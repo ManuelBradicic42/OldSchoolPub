@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     id = params[:id].to_i
     session[:cart] << id
     redirect_to root_path
-    puts session[:cart]
   end
 
 
@@ -59,8 +58,10 @@ class ApplicationController < ActionController::Base
 
   def load_cart
      @cart = Menu.find(session[:cart])
-     puts(session[:cart])
-     puts(@cart)
+  rescue ActiveRecord::RecordNotFound
+    session[:cart] = []
+     # puts(session[:cart])
+     # puts(@cart)
   end
 
 end

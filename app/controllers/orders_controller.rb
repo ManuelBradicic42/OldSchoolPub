@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+
   # GET /orders
   # GET /orders.json
   def index
@@ -25,17 +26,27 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    # menu_list = session[:]
+    # @menus = Menu.all
 
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
+        session[:cart] = []
+
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
+
+  # def find_menus
+  #   @menu = Menu.where("id LIKE ?", params[])
+  # end
 
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json

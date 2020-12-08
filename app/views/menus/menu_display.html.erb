@@ -1,9 +1,7 @@
+<body class="background">
+  <div class="structure">
+    <!-- <p id="notice"><%= notice %></p> -->
 
-<p id="notice"><%= notice %></p>
-
-
-<div class="backgroundMenu">
-  <div class="structureMenu">
     <h1><%= t('menus.title') %></h1>
     <p><%= t('menus.text_head') %></p>
 
@@ -20,16 +18,19 @@
       </thead>
 
       <tbody>
+        <% row_id = 0 %>
         <% @menus.each_with_index do |menu, i| %>
           <% row_class = "" %>
-          <% if i % 2 == 0 %>
-            <% row_class = "even" %>
-          <% else %>
-            <% row_class = "odd" %>
-          <% end %>
 
-          <tr class="<%= row_class %>">
-            <% if menu.availability == true %>
+          <% if menu.availability == true %>
+            <% row_id += 1 %>
+            <% if row_id % 2 == 0 %>
+              <% row_class = "even" %>
+            <% else %>
+              <% row_class = "odd" %>
+            <% end %>
+
+            <tr class="<%= row_class %>">
 
               <td class = "picture"><%= image_tag(menu.name, :class => "imgMenu", :alt => "Image") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td>
               <td class = "name"><%= menu.name %></td>
@@ -37,12 +38,12 @@
               <td style="text-align:center"><%= menu.price %></td>
               <td><%= link_to 'Add to cart', add_to_cart_path(menu.id), method: :post %></td>
 
-            <% end %>
-          </tr>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
 
     <br>
   </div>
-</div>
+</body>

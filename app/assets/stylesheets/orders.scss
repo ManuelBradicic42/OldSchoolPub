@@ -1,3 +1,18 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font: 'Times New Roman', 'Times';
+
+
+.field{
+  display: block;
+  text-align: left;
+}
+tr{
+margin-bottom: 15px;
+}
+
+.limit{
+  max-width: 800px;
+}

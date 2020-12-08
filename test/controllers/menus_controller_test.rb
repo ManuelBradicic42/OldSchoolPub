@@ -17,7 +17,7 @@ class MenusControllerTest < ActionDispatch::IntegrationTest
 
   test "should create menu" do
     assert_difference('Menu.count') do
-      post menus_url, params: { menu: { availability: @menu.availability, description: @menu.description, name: @menu.name, price: @menu.price } }
+      post :create,  menu: { availability: @menu.availability, description: @menu.description, name: @menu.name, price: @menu.price + " create" }
     end
 
     assert_redirected_to menu_url(Menu.last)
