@@ -26,22 +26,18 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    # menu_list = session[:]
-    # @menus = Menu.all
 
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
-        session[:cart] = []
 
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
-
-
+    session[:order_id] = @order.id
   end
 
   # def find_menus
@@ -80,6 +76,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:orderNr, :date, :customerName, :customerNumber, :address, :totalPrice)
+      params.require(:order).permit(:date, :customerName, :customerNumber, :address, :totalPrice)
     end
 end

@@ -24,17 +24,19 @@
     <%= @order.totalPrice %>
   </p>
 
-  <ul>
-    <% if @order.line_items.empty? %>
-      <%= button_to 'Confirm', line_items_path(menu_id: session), id: 'confirmId'%>
-    <% else %>
+  <p>
+    <ul>
       <% @order.line_items.each do |item| %>
         <li><%= item.menu.name %></li>
       <% end %>
+    </ul>
+  </p>
+
+    <% if @order.line_items.empty? %>
+      <%= button_to 'Confirm', line_items_path(menu_id: session), id: 'confirmId'%>
     <% end %>
-  </ul>
 
   <%= link_to 'Edit', edit_order_path(@order) %>
-  <%= link_to 'Back', "/menu" %>
+  <%= link_to 'Back', "menu" %>
   </div>
 </body>

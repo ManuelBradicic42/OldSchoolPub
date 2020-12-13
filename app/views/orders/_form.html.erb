@@ -1,38 +1,40 @@
-<%= form_with(model: order, local: true) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<body>
+  <%= form_with(model: order, local: true, :html =>{:id => "newOrderForm"}) do |form|%>
+    <% if order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+        <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :customerName %>
+      <%= form.text_field :customerName %>
+    </div>
+
+    <div class="field">
+      <%= form.label :customerNumber %>
+      <%= form.text_field :customerNumber %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_area :address %>
+    </div>
+
+    <div class="field">
+      <%= form.label :totalPrice %>
+      <%= form.number_field :totalPrice, step: :any %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :customerName %>
-    <%= form.text_field :customerName %>
-  </div>
-
-  <div class="field">
-    <%= form.label :customerNumber %>
-    <%= form.text_field :customerNumber %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
-
-<!-- This value :  -->
-  <div class="field">
-    <%= form.label :totalPrice %>
-    <%= form.number_field :totalPrice %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</body>

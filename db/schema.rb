@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_210043) do
+ActiveRecord::Schema.define(version: 2020_12_10_192529) do
 
   create_table "line_items", force: :cascade do |t|
     t.integer "order_id"
@@ -29,14 +29,13 @@ ActiveRecord::Schema.define(version: 2020_12_04_210043) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.string "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x0000564d80c4c470>"
   end
 
   create_table "orders", force: :cascade do |t|
     t.string "customerName", null: false
     t.string "customerNumber", null: false
     t.text "address", null: false
-    t.integer "totalPrice", null: false
+    t.float "totalPrice", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

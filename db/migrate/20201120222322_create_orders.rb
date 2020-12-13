@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :customerName,   null:false
       t.string :customerNumber, null:false
       t.text :address,          null:false
-      t.integer :totalPrice,    null:false
+      t.float :totalPrice,    null:false
 
       t.timestamps
     end

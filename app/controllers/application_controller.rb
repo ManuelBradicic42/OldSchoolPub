@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     id = params[:id].to_i
     session[:cart] << id
     redirect_to root_path
+    puts(session[:cart])
   end
 
 

@@ -1,8 +1,8 @@
-<%= debug session[:cart] %>
+<%# <% debug session[:cart] %> %>
 
 <%= javascript_tag "session = #{session[:cart].to_json.html_safe};"%>
 
- <body class="background" onload="load()">
+ <body class="background" onload="load()" id="deliveryIndex">
   <div class="structure">
     <% if @cart.empty? %>
       <p ><%= t('delivery.emptyCartText') %></p>
@@ -43,8 +43,13 @@
 
               <tr class="<%= row_class %>">
 
+                <% if menu.image.url != nil %>
+                  <td class = "picture"><%= image_tag(menu.image.url, :class => "imgMenu") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td>
+                <% else %>
+                  <td class= "picture"><%= image_tag("/uploads/menu/image/" + menu.name + ".jpg", :class =>"imgMenu")  %> </td>
+                <% end %>
+                <!-- <td class="picture"><%= image_tag(menu.name, :class => "imgMenu", :alt => "Image") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td> -->
 
-                <td class="picture"><%= image_tag(menu.name, :class => "imgMenu", :alt => "Image") rescue image_tag('Pizza.jpg', :class => "imgMenu")%></td>
                 <td class="name"><%= menu.name %></td>
                 <td id="nrUnits<%= menu_id %>"class="units"></td>
                 <td id="ppu<%= menu_id %>" ><%= menu.price %></td>
@@ -63,7 +68,8 @@
   <!-- To change the content of the output, check application.js, load function -->
   <div class="order">
     <p id="finalPrice"></p>
-    <a href="orders/new" class="button"><%= t('delivery.Checkout') %></a>
+    <%= link_to t('delivery.Checkout'), new_order_path %>
+    <!-- <a href="orders/new" class="button" id="checkout"> <#%= t('delivery.Checkout') %></a> -->
   </div>
   <br>
   </div>

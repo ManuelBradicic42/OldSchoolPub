@@ -3,6 +3,8 @@ require 'test_helper'
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @line_item = line_items(:one)
+    @order = orders(:one)
+    @menu = menus(:one)
   end
 
   test "should get index" do
@@ -17,7 +19,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create line_item" do
     assert_difference('LineItem.count') do
-      post line_items_url, params: { line_item: { menu_id: @line_item.menu_id, order_id: @line_item.order_id } }
+      get line_items_url, params: { line_item: { menu_id: @menu.menu_id, order_id: @order.order_id} }
     end
 
     assert_redirected_to line_item_url(LineItem.last)

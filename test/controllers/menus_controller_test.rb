@@ -3,6 +3,7 @@ require 'test_helper'
 class MenusControllerTest < ActionDispatch::IntegrationTest
   setup do
     @menu = menus(:one)
+    @menu.image = 'Image.jpg'
   end
 
   test "should get index" do
@@ -17,7 +18,7 @@ class MenusControllerTest < ActionDispatch::IntegrationTest
 
   test "should create menu" do
     assert_difference('Menu.count') do
-      post :create,  menu: { availability: @menu.availability, description: @menu.description, name: @menu.name, price: @menu.price + " create" }
+      post menus_url,  params: { menu: { availability: @menu.availability, description: @menu.description, name: 'Unique name 231', price: @menu.price, image: 'Image.jpg'} }
     end
 
     assert_redirected_to menu_url(Menu.last)
@@ -34,7 +35,7 @@ class MenusControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update menu" do
-    patch menu_url(@menu), params: { menu: { availability: @menu.availability, description: @menu.description, name: @menu.name, price: @menu.price } }
+    patch menu_url(@menu), params: { menu: { availability: @menu.availability, description: @menu.description, name: 'Unique name 444', price: @menu.price, image: @menu.image} }
     assert_redirected_to menu_url(@menu)
   end
 
