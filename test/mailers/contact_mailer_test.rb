@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class ContactMailerTest < ActionMailer::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
-
 
   test "should return contact email" do
     mail =   ContactMailer.contact_email("manuelb@gmail.com", "Manuel Bradicic",

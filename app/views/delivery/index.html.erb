@@ -5,7 +5,7 @@
  <body class="background" onload="load()" id="deliveryIndex">
   <div class="structure">
     <% if @cart.empty? %>
-      <p ><%= t('delivery.emptyCartText') %></p>
+      <p><%= t('delivery.emptyCartText') %></p>
     <% else %>
 
       <h1><%= t('delivery.title') %></h1>
@@ -68,8 +68,9 @@
   <!-- To change the content of the output, check application.js, load function -->
   <div class="order">
     <p id="finalPrice"></p>
-    <%= link_to t('delivery.Checkout'), new_order_path %>
-    <!-- <a href="orders/new" class="button" id="checkout"> <#%= t('delivery.Checkout') %></a> -->
+    <% if !@cart.empty? %>
+      <%= link_to t('delivery.Checkout'), new_order_path, class: "button", id: "checkout" %>
+    <% end %>
   </div>
   <br>
   </div>

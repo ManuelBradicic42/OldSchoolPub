@@ -1,28 +1,53 @@
+<style media="screen">
 
 
+header,body{
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+.background{
+    background: #E8E8E8;
+    padding: 5px;
+  }
+
+dt{
+  font-weight: bold;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 
 
-<p>
-  <% "Dear #{t('app_title')},"%>
-</p>
-<p>
-  <%= "Could you get in touch with me please?" %>
-</p>
+<body>
+    <img src="/oldschoolpub_logo.png" class="center">
 
-<div id="contactUsForm">
-  <dl class="">
-    <dt>Name:</dt>
-    <dd><%= @name %></dd>
-
-    <dt>Email:</dt>
-    <dd><%= @email %></dd>
-
-    <dt>Telephone:</dt>
-    <dd><%= @telephone %></dd>
-
+  <div class="background">
     <p>
-      <%= @message %>
+      <%= "Dear #{t('app_title')},"%>
+      <br>
+      <%= "Could you get in touch with me please?" %>
     </p>
-    <p>Thanks, </p>
-  </dl>
-</div>
+
+    <div>
+      <dl class="structure">
+        <dt>Name:</dt>
+        <dd><%= @name %></dd>
+
+        <dt>Email:</dt>
+        <dd><%= @email %></dd>
+
+        <dt>Telephone:</dt>
+        <dd><%= @telephone %></dd>
+
+        <p>
+          <%= @message %>
+        </p>
+        <p>Thanks, </p>
+      </dl>
+    </div>
+  </div>
+
+</body>

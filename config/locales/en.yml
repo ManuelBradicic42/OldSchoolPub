@@ -5,6 +5,8 @@ en:
 
     show:
       title: "New product in the menu"
+  banner:
+    button: "Order now!"
   home:
     title: "Welcome to OldSchoolPub!"
     introduction_text: >
@@ -59,3 +61,4 @@ en:
       Guildford Park Avenue 7 Guildford
       GU2 7NJ, Surrey
       +(0)7388 252620
+  app_title: Josh

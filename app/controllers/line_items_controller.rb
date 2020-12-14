@@ -6,9 +6,11 @@ class LineItemsController < ApplicationController
   before_action :load_cart
 
 
-  def add_to_session
-    id = params[:id].to_i
-    session[:cart] << id
+  # if we want to add an item to the cart has been clicked then add an ID of that product to the session
+  def add_to_cart
+
+    id = params[:id].to_i     #getting the id and converting to an intiger
+    session[:cart] << id      #pushing the id in the session
     redirect_to root_path
     puts(session[:cart])
   end
@@ -33,6 +35,7 @@ class LineItemsController < ApplicationController
   def edit
   end
 
+
   def add_session
     session[:cart] = params[:array]
   end
@@ -41,12 +44,18 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
+    # storing the session in the array
+
     array = session[:cart]
 
+    #itterating through the array and finiding the element in the menu
     array.each_with_index{ |x,i|
+      # fininding the element with an id == x
       menu = Menu.find(x)
+      # creating a line_item based on the order id and menu
       @line_item = @order.line_items.build(menu: menu)
 
+      # if each loop is poining on the last element in the session(array)
       if i == array.length()-1
         respond_to do |format|
           if @line_item.save
@@ -63,6 +72,7 @@ class LineItemsController < ApplicationController
     }
   end
 
+  #function which adds a single value to the line_item, not an array of indices
   def createMan
     @lineitem = LineItem.new(order_params)
 
@@ -77,16 +87,6 @@ class LineItemsController < ApplicationController
       end
     end
   end
-
-  # def create
-  #   array = session[:cart]
-  #   array.each{ |x|
-  #     menu = Menu.find(x)
-  #     @line_item = @order.line_items.build(menu: menu)
-  #     @line_item.save
-  #   }
-  # end
-
 
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
@@ -114,6 +114,7 @@ class LineItemsController < ApplicationController
 
 private
 
+  # initializing the session cart when the page is run.
   def initialize_session
     session[:cart] ||= []
   end
@@ -122,6 +123,7 @@ private
   #   @value ||= Hash.new
   # end
 
+  #fining the prdocut with the id which is stored in the session
   def load_cart
      @cart = Menu.find(session[:cart])
   rescue ActiveRecord::RecordNotFound
@@ -132,22 +134,24 @@ private
 
 
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
-      @line_item = LineItem.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_line_item
+    @line_item = LineItem.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def line_item_params
-      params.require(:line_item).permit(:order_id, :menu_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def line_item_params
+    params.require(:line_item).permit(:order_id, :menu_id)
+  end
 
-    def set_order
-      @order = Order.find(session[:order_id])
-      puts(session[:order_id])
-    rescue ActiveRecord::RecordNotFound
-      @order = Order.create
-      session[:order_id] = @order.id
-    end
+  #creating a session which contains order id, if the new order is created again
+  def set_order
+    @order = Order.find(session[:order_id])
+    puts(session[:order_id])
+  #if an error occurs (if the session doesn't exist) - creating a new one.
+  rescue ActiveRecord::RecordNotFound
+    @order = Order.create
+    session[:order_id] = @order.id
+  end
 
 end

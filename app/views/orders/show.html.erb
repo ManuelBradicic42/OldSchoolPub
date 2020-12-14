@@ -23,6 +23,9 @@
     <strong>Totalprice:</strong>
     <%= @order.totalPrice %>
   </p>
+  <% if not @order.line_items.empty? %>
+    <p><%= "You have ordered" %></p>
+  <% end %>
 
   <p>
     <ul>
@@ -37,6 +40,6 @@
     <% end %>
 
   <%= link_to 'Edit', edit_order_path(@order) %>
-  <%= link_to 'Back', "menu" %>
+  <%= link_to 'Back', '/menu' %>
   </div>
 </body>
