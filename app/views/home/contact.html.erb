@@ -3,7 +3,7 @@
   <div id="contact" class="structure">
     <h1> <%=t('contact.title') %></h1>
     <p> <%=t('contact.contact_us')%></p>
-    <%= form_tag request_contact_path, method: 'post' do %>
+    <%= form_tag request_contact_path, :id => 'contactUsForm', method: 'post' do %>
       <%= label_tag :name, t('contact.name') %>
       <%= text_field_tag :name, '', title: t('contact.enter_name'), size: 50 %>
 

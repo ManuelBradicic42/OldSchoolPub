@@ -1,21 +1,28 @@
+
+
+
+
 <p>
   <% "Dear #{t('app_title')},"%>
 </p>
 <p>
   <%= "Could you get in touch with me please?" %>
 </p>
-<dl class="">
-  <dt>Name:</dt>
-  <dd><%= @name %></dd>
 
-  <dt>Email:</dt>
-  <dd><%= @email %></dd>
+<div id="contactUsForm">
+  <dl class="">
+    <dt>Name:</dt>
+    <dd><%= @name %></dd>
 
-  <dt>Telephone:</dt>
-  <dd><%= @telephone %></dd>
+    <dt>Email:</dt>
+    <dd><%= @email %></dd>
 
-  <p>
-    <%= @message %>
-  </p>
-  <p>Thanks, </p>
-</dl>
+    <dt>Telephone:</dt>
+    <dd><%= @telephone %></dd>
+
+    <p>
+      <%= @message %>
+    </p>
+    <p>Thanks, </p>
+  </dl>
+</div>

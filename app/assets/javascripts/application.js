@@ -34,24 +34,28 @@ function setTotalPrice(){
 function updateNumberOfOrders3(){
   map = new Map;
 
-  var array = session;
-  array.map(function(currentValue, index){
-    var id = "nrUnits" + currentValue;
-    if(currentValue > max){
-      max = currentValue;
-    }
-    if(map.has(id)){
-      var temp = map.get(id) + 1;
-      map.set(id, temp);
-    } else{
-      map.set(id,1);
-    }
-  });
+  try{
+    var array = session;
+    array.map(function(currentValue, index){
+      var id = "nrUnits" + currentValue;
+      if(currentValue > max){
+        max = currentValue;
+      }
+      if(map.has(id)){
+        var temp = map.get(id) + 1;
+        map.set(id, temp);
+      } else{
+        map.set(id,1);
+      }
+    });
 
-  // Create an array of non duplicates
-  $.each(array,function(i,el){
-    if($.inArray(el,uniqueSes) === -1) uniqueSes.push(el);
-  });
+    // Create an array of non duplicates
+    $.each(array,function(i,el){
+      if($.inArray(el,uniqueSes) === -1) uniqueSes.push(el);
+    });
+  }catch{
+
+  }
 }
 
 // Loading the prices and number of units per product from localStorage
@@ -96,6 +100,8 @@ function load(){
   });
 
 function ValidateOrderForm(){
+  alert("Alo1");
+
   $('#myOrderForm').validate({
     rules: {
       'order[customerName]': {
@@ -109,7 +115,7 @@ function ValidateOrderForm(){
       },
       'order[address]': {
         required: true,
-        minlength: 5
+        minlength: 5,
       },
     },
     messages: {
@@ -126,10 +132,28 @@ function ValidateOrderForm(){
     },
   });
 }
+function ValidateContactForm(){
+  alert("Alo2");
 
+  $('#contactUsForm').validate({
+    rules:{
+      'name': {
+        required: true,
+      }
+    },
+    messages:{
+      'name': {
+        required: 'That is required',
+      },
+    }
+  });
+}
 $(document).ready(function(){
   setTotalPrice();
 
+  if(document.getElementById('contactUsForm')){
+    ValidateContactForm();
+  }
   if(document.getElementById('newOrderForm')){
     ValidateOrderForm();
   }

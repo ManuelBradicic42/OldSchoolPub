@@ -1,4 +1,4 @@
-
+<% javascript_tag 'setTotalPrice()' %>
 <body>
   <%= form_with(model: order, local: true, :html =>{:id => "newOrderForm"}) do |form|%>
     <% if order.errors.any? %>
